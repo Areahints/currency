@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progressive Currency Converter</title>
+    <link rel="manifest" href="manifest.json"></link>
+    <link rel="serviceworker" href="sw.js"></link>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body style="background-color: lightcoral;">
+        <section class="section">
+                <div class="container">
+                        <div class="heading">
+                                <h3>A Progressive Currency Converter</h3>
+                        </div>
+
+                        <div class="form">
+                        
+                                <div class="form-group">                                  
+                                        <code id="error" style="display:none;">Error!</strong> Please only numbers allowed!</code>                                    
+                                        <input class="input-lg"required type="number" style="margin-top:5px;" placeholder="How much?" class="form-control" id="amountValue" />                                        
+                                </div>
+
+                        <div class="form-group">
+                                <select class="form-control" id="from-currency">
+                                <option value="">From Currency</option>                                       
+                                </select>
+                        </div>
+
+                        <div class="form-group">
+                                <select class="form-control" id="to-currency">
+                                <option value="">To Currency</option>
+                                </select>
+                        </div>
+                                
+                        <div class="form-group">
+                                <button type="button" id="convert-btn" class="btn-block">CONVERT</button>
+                        </div>
+
+                        <div class="form-group">
+                                <div class="info-box">
+                                <div class="content"></div>											
+                                <div class="number" id="converted-value" style="background-color: floralwhite;padding: 2rem;text-align:  center;font-size: 40px;border-radius: 2rem;text-decoration:  underline;"></div>											
+                                </div>										
+                        </div>
+                </div>
+        </section>
+    </div>
+
+        <script>
+            if ('serviceWorker' in navigator) {
+                    navigator.serviceWorker.register('./sw.js').catch(function(err) {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            }
+        </script>
+
+        <script>src="assets/jquery.min.js"</script>
+        <script src="assets/controller.js"></script>
+        <script src="assets/idbconfig.js"></script>
+</body>
+</html>
